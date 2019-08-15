@@ -6,13 +6,13 @@ from application import app, db, bcrypt
 from application.forms import LoginForm, RegistrationForm, UpdateAccountForm, PostForm
 from application.models import Posts, Users
 from flask_login import login_user, current_user, logout_user, login_required
-
+from sqlalchemy import desc
 
 @app.route('/')
 @app.route('/home')
 def home():
 	page = request.args.get('page', 1, type=int)
-	postData = Posts.query.paginate(page=page, per_page=1)
+	postData = Posts.query.order_by(desc(Posts.date_posted)).paginate(page=page, per_page=1)
 
 	return render_template('home.html', posts=postData)
 
