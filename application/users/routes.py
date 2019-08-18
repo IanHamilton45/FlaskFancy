@@ -73,13 +73,14 @@ def account():
 	return render_template('account.html', title='Account', 
 							image_file=image_file, form=form)
 
+
 @users.route('/user/<string:username>')
 def user_posts(username):
 	page = request.args.get('page', 1, type=int)
 	user = Users.query.filter_by(username=username).first_or_404()
 	postData = Posts.query.filter_by(author=user)\
 		.order_by(Posts.date_posted.desc())\
-		.paginate(page=page, per_page=NUM_POSTS_PER_PAGE)
+		.paginate(page=page, per_page=10)
 
 	return render_template('user_posts.html', posts=postData, user=user)
 

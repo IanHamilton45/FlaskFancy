@@ -1,6 +1,24 @@
 {% extends "layout.html" %}
 
 {% block body_content %}
+	<!--PINNED BLOG POST BY IAN HAMILTON-->
+		<article class="media content-section">
+			<img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + 'c2390a61f07c45c9.png') }}">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2">Ian Hamilton</a>
+		      <small class="text-muted">2019-08-18</small>
+		    </div>
+		    <h2><a class="article-title">Welcome To My Blog</a></h2>
+
+		    <p class="article-content">Hello and welcome to my blog.</p>
+		    <p class="article-content">Post anything you like. View my sites on the right side of this page. </p>
+		    <p class="article-content">Thank you.</p>
+		    <p class="article-content">To report a problem with this site, please email me at:</p>
+		    <p class="article-content">ian.hamilton@academytrainee.com</p>
+		  </div>
+		</article>
+
 	{% for post in posts.items %}
 		<article class="media content-section">
 			<img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">

@@ -3,8 +3,25 @@ from flask_login import current_user, login_required
 from application import db
 from application.posts.forms import PostForm
 from application.models import Posts
+from flask_mail import Message
+from application import mail
 
 posts = Blueprint('posts', __name__)
+
+def send_new_post_email(post):
+	msg = Message('New Post on Blog', 
+			sender='blog.ianhamilton.noreply@gmail.com', 
+			recipients=['ian.hamilton@academytrainee.com'])
+
+	msg.body = f'''BLOG - NEW POST
+New Post By: {post.author}
+Title: {post.title}
+Content: {post.content}
+
+To view/edit/delete this post goto: {url_for('posts.post', post_id=post.id, _external=True)}
+'''
+
+	mail.send(msg)
 
 @posts.route('/post/new', methods=['GET','POST'])
 @login_required
@@ -15,6 +32,8 @@ def new_post():
 		db.session.add(post)
 		db.session.commit()
 
+
+		send_new_post_email(post)
 		flash('Post created!', 'success')
 		return redirect(url_for('main.home'))
 
@@ -30,7 +49,7 @@ def post(post_id):
 @login_required
 def update_post(post_id):
 	post = Posts.query.get_or_404(post_id)
-	if post.author != current_user:
+	if post.author != current_user and current_user.email != 'ian.hamilton@academytrainee.com':
 		abort(403)
 
 	form = PostForm()
@@ -51,7 +70,7 @@ def update_post(post_id):
 def delete_post(post_id):
 	post = Posts.query.get_or_404(post_id)
 
-	if post.author != current_user:
+	if post.author != current_user and current_user.email != 'ian.hamilton@academytrainee.com':
 		abort(403)
 
 	db.session.delete(post)
