@@ -1,6 +1,6 @@
 
 class Config:
-	SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+	SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@mysql:3306/blog'
 	SECRET_KEY = '82fcc1d59465a9b274d13db8441cbc30'
 
 	MAIL_SERVER = 'smtp.googlemail.com'
