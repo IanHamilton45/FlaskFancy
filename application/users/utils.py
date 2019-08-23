@@ -24,11 +24,6 @@ def send_reset_email(user):
 			sender='blog.ianhamilton.noreply@gmail.com', 
 			recipients=[user.email])
 
-	msg.body = f'''BLOG - PASSWORD RESET
-To reset your password, visit the following link:
-{url_for('users.reset_token', token=token, _external=True)} 
-
-If you did not make this request, please ignore this email.
-'''
+	msg.body = ''.join(["BLOG - PASSWORD RESET To reset your password, visit the following link: {url_for('users.reset_token', token=token, _external=True)} If you did not make this request, please ignore this email."])
 
 	mail.send(msg)
