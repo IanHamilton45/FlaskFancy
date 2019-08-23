@@ -2,8 +2,10 @@ FROM python:3.6
 
 WORKDIR /app
 
+
+
 ENV FLASK_ENV production
-ENV FLASK_APP run..py
+ENV FLASK_APP run.py
 
 COPY requirements.txt .
 
