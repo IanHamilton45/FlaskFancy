@@ -13,7 +13,7 @@ class Users(db.Model, UserMixin):
 	username = db.Column(db.String(20), unique=True, nullable=False)
 	email = db.Column(db.String(120), unique=True, nullable=False)
 	image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-	password = db.Column(db.String(60), nullable=False)
+	password = db.Column(db.String(128), nullable=False)
 	posts = db.relationship('Posts', backref='author', lazy=True)
 
 	def get_reset_token(self, expires_seconds=1800):
