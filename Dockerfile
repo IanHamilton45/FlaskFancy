@@ -5,9 +5,9 @@ WORKDIR /app
 ENV FLASK_ENV production
 ENV FLASK_APP run..py
 
-COPY requirements .
+COPY requirements.txt .
 
-RUN pip3 install -r requirements
+RUN pip3 install -r requirements.txt
 
 COPY . .
 
