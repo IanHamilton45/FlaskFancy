@@ -12,14 +12,15 @@ def send_new_post_email(post):
 	msg = Message('New Post on Blog', 
 			sender='blog.ianhamilton.noreply@gmail.com', 
 			recipients=['ian.hamilton@academytrainee.com'])
+	msg.body = "New Blog Post."
 
-	msg.body = f'''BLOG - NEW POST
-New Post By: {post.author}
-Title: {post.title}
-Content: {post.content}
+	#msg.body = f'''BLOG - NEW POST
+#New Post By: {post.author}
+#Title: {post.title}
+#Content: {post.content}
 
-To view/edit/delete this post goto: {url_for('posts.post', post_id=post.id, _external=True)}
-'''
+#To view/edit/delete this post goto: {url_for('posts.post', post_id=post.id, _external=True)}
+#'''
 
 	mail.send(msg)
 
