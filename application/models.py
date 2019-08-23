@@ -32,7 +32,7 @@ class Users(db.Model, UserMixin):
 		return Users.query.get(user_id)
 
 	def __repr__(self):
-		return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+		return ''.join(["User('{self.username}', '{self.email}', '{self.image_file}')"])
 
 class Posts(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -42,4 +42,4 @@ class Posts(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 	def __repr__(self):
-		return f"Post('{self.title}', '{self.date_posted}')"
+		return ''.join(["Post('{self.title}', '{self.date_posted}')"])

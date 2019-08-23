@@ -28,7 +28,6 @@ olefile==0.45.1
 pexpect==4.2.1
 Pillow==5.1.0
 protobuf==3.0.0
-pycairo==1.16.2
 pycparser==2.19
 pycrypto==2.6.1
 pymacaroons==0.13.0
@@ -51,3 +50,4 @@ wadllib==1.3.2
 Werkzeug==0.15.5
 WTForms==2.2.1
 zope.interface==4.3.2
+PyMySQL==0.9.3
