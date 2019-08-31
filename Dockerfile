@@ -1,12 +1,12 @@
-FROM python:3.6
+FROM python:3.7.4
 
 WORKDIR /app
 
 ENV FLASK_ENV development
 ENV FLASK_APP run.py
-#UPDATE THESE
-ENV EMAIL_USER 
-ENV EMAIL_PASS
+
+ENV EMAIL_USER 'blog.ianhamilton.noreply'
+ENV EMAIL_PASS 'pass-007-001'
 
 COPY requirements.txt .
 
