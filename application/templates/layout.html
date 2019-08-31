@@ -34,7 +34,8 @@
 	      		<!-- Collapsable navigation bar -->
 		      	<div class="collapse navbar-collapse" id="navbarToggle">
 		        	<div class="navbar-nav mr-auto">
-	    	      		<a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
+						  <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
+						  <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
 	        		</div>
 
 	        		<!-- Navbar Right Side -->
@@ -73,7 +74,7 @@
 	    		{% block body_content %}{% endblock %}
 	    	</div>
 
-	    	<!-- Sidebar (Optional) Block -->
+	    	<!-- Sidebar Block -->
 	    	<div class="col-md-4">
 	    		<div class="content-section">
 	        		<h3>Sites</h3>
@@ -82,10 +83,9 @@
 	        			<div class="navbar-nav mr-auto">
 	    	      		<a class="list-group-item list-group-item-light" href="https://github.com/IanHamilton45" target="_blank">GitHub</a>
 	        			</div>
-					<div class="navbar-nav mr-auto">
+						<div class="navbar-nav mr-auto">
 	    	      		<a class="list-group-item list-group-item-light" href="http://35.197.208.50" target="_blank">IowaMove AI</a>
 	        			</div>
-
 	          		</ul>
 	        		</p>
 	    		</div>

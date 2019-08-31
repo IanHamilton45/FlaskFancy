@@ -4,6 +4,9 @@ WORKDIR /app
 
 ENV FLASK_ENV development
 ENV FLASK_APP run.py
+#UPDATE THESE
+ENV EMAIL_USER 
+ENV EMAIL_PASS
 
 COPY requirements.txt .
 
