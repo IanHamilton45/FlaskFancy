@@ -5,8 +5,8 @@ WORKDIR /app
 ENV FLASK_ENV development
 ENV FLASK_APP run.py
 
-ENV EMAIL_USER 'blog.ianhamilton.noreply'
-ENV EMAIL_PASS 'pass-007-001'
+ENV MAIL_USERNAME 'blog.ianhamilton.noreply'
+ENV MAIL_PASSWORD 'pass-007-001'
 
 COPY requirements.txt .
 
